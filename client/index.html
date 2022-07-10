@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Remote style sheet -->
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- Embedded style sheet -->
+    <style>
+      #content {
+        display: block;
+      }
+
+      .internal {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="/action_page.php">
+      <label for="fees">Choose fee type:</label>
+      <select name="fees" id="fees"></select>
+      <br /><br />
+      <label hidden for="natinality" id="nationality_label"
+        >Choose nationality:</label
+      >
+      <select hidden name="nationality" id="nationality"></select>
+      <br /><br />
+      <label hidden for="course" id="course_label">Choose course:</label>
+      <select hidden name="course" id="course"></select>
+      <br /><br />
+      <label hidden for="level" id="level_label">Choose level:</label>
+      <select hidden name="level" id="level"></select>
+    </form>
+    <p id="answer"></p>
+  </body>
+  <script src="json.js"></script>
+  <script src="index.js"></script>
+</html>
