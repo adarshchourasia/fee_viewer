@@ -112,8 +112,10 @@ function calculatePayment(data) {
   select_level.addEventListener("change", function handleChange(event) {
     let level_type = event.target.value;
     var ans = document.getElementById("answer");
-    ans.innerHTML = JSON.stringify(
-      data[fee_type][nationality_type][course_type][level_type]
-    );
+    ans.removeAttribute("hidden");
+    ans.innerHTML =
+      "Fees Amount: " +
+      data[fee_type][nationality_type][course_type][level_type]["amount"] +
+      " Rupees";
   });
 }

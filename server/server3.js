@@ -13,5 +13,5 @@ app.get("/getData", function (req, res) {
 var server = app.listen(3000, () => {
   var host = server.address().address;
   var port = server.address().port;
-  console.log("API running", host, port);
+  console.log("Server Running", host, port);
 });

@@ -1,24 +1,89 @@
 <!DOCTYPE html>
-<html>
-  <head> </head>
-
-  <body>
-    <form action="/action_page.php">
-      <label for="fees">Choose fee type:</label>
-      <select name="fees" id="fees"></select>
-      <br /><br />
-      <label hidden for="natinality" id="nationality_label"
-        >Choose nationality:</label
-      >
-      <select hidden name="nationality" id="nationality"></select>
-      <br /><br />
-      <label hidden for="course" id="course_label">Choose course:</label>
-      <select hidden name="course" id="course"></select>
-      <br /><br />
-      <label hidden for="level" id="level_label">Choose level:</label>
-      <select hidden name="level" id="level"></select>
-    </form>
-    <p id="answer"></p>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body data-spy="scroll">
+    <div class="offset">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="headerText text-center">
+              <h1>
+                <br /><br />
+                Fee Viewer
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            <div class="col-lg">
+              <div class="form-group">
+                <label class="control-label offset-sm-3 col-sm-6" for="fees"
+                  >Choose fee type:</label
+                >
+                <select
+                  class="btn btn-info offset-sm-3 col-sm-6"
+                  name="fees"
+                  id="fees"
+                ></select>
+              </br> </br>
+                <label
+                  class="control-label offset-sm-3 col-sm-6"
+                  hidden
+                  for="natinality"
+                  id="nationality_label"
+                  >Choose nationality:</label
+                >
+                <select
+                  class="btn btn-info offset-sm-3 col-sm-6"
+                  hidden
+                  name="nationality"
+                  id="nationality"
+                ></select>
+              </br> </br>
+                <label
+                  class="control-label offset-sm-3 col-sm-6"
+                  hidden
+                  for="course"
+                  id="course_label"
+                  >Choose course:</label
+                >
+                <select
+                  class="btn btn-info offset-sm-3 col-sm-6"
+                  hidden
+                  name="course"
+                  id="course"
+                ></select>
+              </br> </br>
+                <label
+                  class="control-label offset-sm-3 col-sm-6"
+                  hidden
+                  for="level"
+                  id="level_label"
+                  >Choose level:</label
+                >
+                <select
+                  class="btn btn-info offset-sm-3 col-sm-6"
+                  hidden
+                  name="level"
+                  id="level"
+                ></select>
+                </div>
+              </br>
+                <p hidden class="btn btn-success offset-sm-3 col-sm-6" id="answer"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="index.js"></script>
 </html>
