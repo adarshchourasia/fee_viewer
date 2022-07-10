@@ -4,7 +4,7 @@ var fs = require("fs");
 const cors = require("cors");
 app.use(cors());
 
-app.get("/getUsers", function (req, res) {
+app.get("/getData", function (req, res) {
   fs.readFile(__dirname + "/" + "test_data.json", "utf8", function (err, data) {
     res.end(data);
   });

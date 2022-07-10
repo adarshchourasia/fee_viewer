@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/getUsers")
+fetch("http://localhost:3000/getData")
   .then((response) => response.json())
   .then((data) => calculatePayment(data));
 
@@ -48,12 +48,24 @@ function calculatePayment(data) {
       .getElementById("course")
       .options.add(new Option("Select course", "Select course"));
 
+    var all_courses_keys = ["Medical", "Dental", "Ayurveda"];
+
     Object.keys(data[fee_type][nationality_type]).forEach(function (key) {
-      let option;
-      option = document.createElement("option");
-      option.text = key;
-      option.value = key;
-      dropdown.add(option);
+      if (key == "ALL_COURSES") {
+        all_courses_keys.forEach(function (data) {
+          let option;
+          option = document.createElement("option");
+          option.text = data;
+          option.value = key;
+          dropdown.add(option);
+        });
+      } else {
+        let option;
+        option = document.createElement("option");
+        option.text = key;
+        option.value = key;
+        dropdown.add(option);
+      }
     });
     document.getElementById("nationality").setAttribute("disabled", "");
   });
@@ -71,13 +83,25 @@ function calculatePayment(data) {
       .getElementById("level")
       .options.add(new Option("Select level", "Select level"));
 
+    var all_level_keys = ["UG", "PG", "Diploma", "Ph.D"];
+
     Object.keys(data[fee_type][nationality_type][course_type]).forEach(
       function (key) {
-        let option;
-        option = document.createElement("option");
-        option.text = key;
-        option.value = key;
-        dropdown.add(option);
+        if (key == "ALL_LEVEL") {
+          all_level_keys.forEach(function (data) {
+            let option;
+            option = document.createElement("option");
+            option.text = data;
+            option.value = key;
+            dropdown.add(option);
+          });
+        } else {
+          let option;
+          option = document.createElement("option");
+          option.text = key;
+          option.value = key;
+          dropdown.add(option);
+        }
       }
     );
     document.getElementById("course").setAttribute("disabled", "");
