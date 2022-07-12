@@ -113,9 +113,32 @@ function calculatePayment(data) {
     let level_type = event.target.value;
     var ans = document.getElementById("answer");
     ans.removeAttribute("hidden");
-    ans.innerHTML =
-      "Fees Amount: " +
-      data[fee_type][nationality_type][course_type][level_type]["amount"] +
-      " Rupees";
+    let fee_amount_net =
+      data[fee_type][nationality_type][course_type][level_type]["amount"];
+    if (nationality_type == "INDIAN") {
+      fee_amount_net = fee_amount_net + fee_amount_net * 0.18;
+    } else {
+      fee_amount_net = fee_amount_net + fee_amount_net * 0.28;
+    }
+    ans.innerHTML = "Fees Amount: " + fee_amount_net + " Rupees";
   });
 }
+
+// Testing
+const submitButton = document.querySelector("#submit-entry");
+
+submitButton.onclick = function () {
+  const fee_name = document.querySelector("#fee_name").value;
+  const fee_amount = document.querySelector("#fee_amount").value;
+  console.log(fee_name, fee_amount);
+  fetch("http://localhost:3000/enterTableData", {
+    headers: {
+      "Content-type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({
+      fee_name: fee_name,
+      fee_amount: fee_amount,
+    }),
+  });
+};
